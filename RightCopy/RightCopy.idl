@@ -1,0 +1,35 @@
+// RightCopy.idl : RightCopy 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(RightCopy.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(DA6660DA-2A57-46C0-982F-12F48E690D9F),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IRightContextMenu : IDispatch{
+	[id(1)] HRESULT RCM();
+};
+[
+	uuid(191936EA-FFCA-4D37-8363-2D6C20966DC4),
+	version(1.0),
+]
+library RightCopyLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(46DB5DB8-BD44-4AF4-853A-7428B04E7CBA)		
+	]
+	coclass RightContextMenu
+	{
+		[default] interface IRightContextMenu;
+	};
+};
+

@@ -1,0 +1,38 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {46DB5DB8-BD44-4AF4-853A-7428B04E7CBA} = s 'RightContextMenu Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{191936EA-FFCA-4D37-8363-2D6C20966DC4}'
+			Version = s '1.0'
+		}
+	}
+
+	NoRemove *
+	{
+		NoRemove shellex
+		{
+			NoRemove ContextMenuHandlers
+			{
+				RightContextMenu = s '{46DB5DB8-BD44-4AF4-853A-7428B04E7CBA}'
+			}
+		}
+	}
+	
+	NoRemove Directory
+	{
+		NoRemove shellex
+		{
+			NoRemove ContextMenuHandlers
+			{
+				RightContextMenu = s '{46DB5DB8-BD44-4AF4-853A-7428B04E7CBA}'
+			}
+		}
+	}
+}
