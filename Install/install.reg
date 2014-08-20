@@ -1,0 +1,24 @@
+﻿Windows Registry Editor Version 5.00
+
+;文件
+[HKEY_CLASSES_ROOT\*\shell\CopyName]
+@="复制名称"
+[HKEY_CLASSES_ROOT\*\shell\CopyName\command]
+@="\"%exePath%\" Name \"%1\""
+
+[HKEY_CLASSES_ROOT\*\shell\CopyPath]
+@="复制路径"
+[HKEY_CLASSES_ROOT\*\shell\CopyPath\command]
+@="\"%exePath%\" Path \"%1\""
+
+;文件夹
+[HKEY_CLASSES_ROOT\Directory\shell\CopyName]
+@="复制名称"
+[HKEY_CLASSES_ROOT\Directory\shell\CopyName\command]
+@="\"%exePath%\" Name \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\CopyPath]
+@="复制路径"
+[HKEY_CLASSES_ROOT\Directory\shell\CopyPath\command]
+@="\"%exePath%\" Path \"%1\""
+
