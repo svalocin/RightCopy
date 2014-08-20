@@ -46,27 +46,22 @@ void CRightContextMenu::ClipOperation(int type, HWND hwnd)
 {
 	wstring wstr;
 
-	switch (type)
+	while (!queue_string.empty())
 	{
-	case CopyName:
-		while (!queue_string.empty())
+		switch (type)
 		{
-			wstr.append(PathFindFileName(queue_string.front().c_str()));
-			wstr.append(_T(" "));
-			queue_string.pop();
-		}
-		break;
-	case CopyPath:
-		while (!queue_string.empty())
-		{
+		case CopyName:
+			wstr.append(PathFindFileName(queue_string.front().c_str())); //获取文件名
+			break;
+		case CopyPath:
 			wstr.append(queue_string.front());
-			wstr.append(_T(" "));
-			queue_string.pop();
+			break;
+		default:
+			return;
+			break;
 		}
-		break;
-	default:
-		return;
-		break;
+		wstr.append(_T(" "));
+		queue_string.pop();
 	}
 
 	wstr.erase(wstr.size() - 1, 1);
